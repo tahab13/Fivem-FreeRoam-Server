@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="keks.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="content">
+            <div class="logo">
+                <h1 class="server-name">Free Roam</h1>
+                <p class="server-subtitle">Welcome to the experience</p>
+            </div>
+            <div class="loading-container">
+                <div class="loading-bar">
+                    <div class="loading-progress" id="progress"></div>
+                </div>
+                <div class="loading-info">
+                    <span class="loading-text" id="loading-text">Initializing...</span>
+                    <span class="loading-percentage" id="percentage">0%</span>
+                </div>
+            </div>
+            <div class="status-dots">
+                <div class="dot" id="dot1"></div>
+                <div class="dot" id="dot2"></div>
+                <div class="dot" id="dot3"></div>
+            </div>
+        </div>
+    </div>
+
+<script>
+var count = 0;
+var thisCount = 0;
+
+const handlers = {
+    startInitFunctionOrder(data) {
+        count = data.count;
+    },
+
+    initFunctionInvoking(data) {
+        const progress = (data.idx / count) * 100;
+        updateProgress(progress);
+    },
+
+    startDataFileEntries(data) {
+        count = data.count;
+    },
+
+    performMapLoadFunction(data) {
+        ++thisCount;
+        const progress = (thisCount / count) * 100;
+        updateProgress(progress);
+    },
+
+    onLogLine(data) {
+        const textEl = document.getElementById('loading-text');
+        if (textEl) {
+            textEl.textContent = data.message || 'Loading...';
+        }
+    }
+};
+
+function updateProgress(progress) {
+    const progressEl = document.getElementById('progress');
+    const percentageEl = document.getElementById('percentage');
+    
+    if (progressEl) {
+        progressEl.style.width = progress + '%';
+    }
+    
+    if (percentageEl) {
+        percentageEl.textContent = Math.round(progress) + '%';
+    }
+}
+
+window.addEventListener('message', function(e) {
+    (handlers[e.data.eventName] || function() {})(e.data);
+});
+</script>
+</body>
+</html>

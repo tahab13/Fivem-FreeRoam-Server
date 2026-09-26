@@ -1,0 +1,424 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+
+:root {
+    --color-bg-primary: rgba(46, 46, 46, 1);
+    --color-bg-sidebar: rgba(46, 46, 46, 1);
+    --box-shadow-sidebar: 1rem 0px 3.5rem rgba(0,0,0,0.5);
+    --box-shadow-menu: 0px 0px 2rem rgba(0,0,0,0.4);
+
+    --color-text-primary: rgba(239, 239, 239, 1);
+    --color-text-secondary: rgba(138, 138, 138, 1);
+
+    --color-border: rgba(138, 138, 138, 1);
+    --color-border-accent-primary: rgba(21, 137, 216, 1);
+
+    --color-btn-bg: rgba(62, 62, 62, 1);
+    --color-btn-popover-bg: rgba(62, 62, 62, 1);
+    --color-btn-border: #1d1d1d;
+    --color-btn-hover: #4f4f4f;
+
+    --color-scrollbar: #1589d8;
+    --color-scrollbar-hover: #3badf8;
+
+    --color-accent-primary: #1589d8;
+    --color-accent-primary-hover: #3badf8;
+    --color-accent-secondary: rgba(62, 62, 62, 1);
+    --color-accent-secondary-hover: #d84c15;
+    --color-accent-favorite: #ffd700;
+    --color-accent-favorite-hover: #ffe96c;
+
+    --border-radius-menu: 5px;
+    --border-radius-search-bar: 0px;
+    --border-radius-btn-sidebar: 0px;
+    --border-radius-btn-sidebar-hover: 0px;
+    --border-radius-btn-emote: 0px;
+    --border-radius-btn-emote-hover: 0px;
+
+    --font-size-primary: 1.6rem;
+}
+
+
+img,
+.noselect {
+	user-select: none;
+}
+
+/* FiveM's CEF doesn't support standard CSS scrollbar styling :D */
+.invisible-scrollbar::-webkit-scrollbar {
+    scrollbar-width: thin;
+    display: none;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar:horizontal {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f100;
+}
+::-webkit-scrollbar-thumb {
+	background: var(--color-scrollbar);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-scrollbar-hover);
+}
+
+.menu {
+    display: none;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.grid {
+    display: grid !important;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.no-cursor {
+    pointer-events: none !important;
+}
+
+.singlecolumn {
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+.doublecolumn {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+.triplecolumn {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+/* This makes 1rem = 10px (more-or-less). We will also use this to scale lower resolutions. */
+html {
+	font-size: 62.5%;
+    font-family: 'Noto Color Emoji', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
+
+.noto-color-emoji-regular {
+  font-family: "Noto Color Emoji", sans-serif;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 3rem;
+    height: 100vh;
+
+    font-size: var(--font-size-primary);
+}
+
+.align-left {
+    align-items: flex-start !important;
+}
+
+hr {
+    border-color: var(--color-border);
+    margin: 0.4rem 0;
+}
+
+.main-container {
+    display: flex;
+    width: 42rem;
+    flex-direction: column;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    height: 60vh;
+    overflow: auto;
+    border-radius: var(--border-radius-menu);
+    box-shadow: var(--box-shadow-menu);
+}
+
+.header-container {
+    display: flex; /* Removes some weird margin-bottom in block display */
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    padding-top: 1rem;
+}
+
+.search-input {
+    flex-grow: 1;
+    height: 3.2rem;
+    background-color: var(--color-btn-bg);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius-search-bar);
+    padding: 0 1rem;
+}
+
+.btn-clear-search {
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none !important;
+    border-radius: var(--border-radius-search-bar) !important;
+    text-align: center;
+    text-justify: center;
+}
+
+.btn-style-reset {
+    background-color: var(--color-accent-secondary) !important;
+    margin-bottom: 1rem;
+    grid-column: 1 / -1;
+}
+.btn-style-reset:hover, .btn-style-reset:focus-visible {
+    background-color: var(--color-accent-secondary-hover) !important;
+}
+
+.menu-container {
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+    flex-grow: 1;
+    gap: 1rem;
+}
+
+.side-navigation {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: auto;
+    height: 100%;
+    max-width: 5.2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--color-bg-sidebar);
+    transition: all 200ms;
+    flex-wrap: nowrap;
+    box-shadow: none;
+}
+
+.side-navigation::-webkit-scrollbar {
+    scrollbar-width: thin;
+    display: none;
+}
+
+.side-navigation:hover, .side-navigation:has(button:focus-visible) {
+    max-width: 80%;
+    flex-grow: 1;
+    box-shadow: var(--box-shadow-sidebar);
+}
+
+.side-navigation:hover::-webkit-scrollbar, .side-navigation:has(button:focus-visible)::-webkit-scrollbar {
+    scrollbar-width: thin;
+    display: inherit;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-btn-bg);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 25%;
+    transition: all 200ms;
+}
+
+.btn:hover, .btn:focus-visible {
+    background-color: var(--color-btn-hover);
+}
+
+/* I had to fight with this POS to work correctly in FiveM CEF. */
+.sidebar-button-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    min-width: 20rem; /* mandatory... */
+    text-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.sidebar-button-active button {
+    background-color: var(--color-accent-primary);
+}
+.sidebar-button-active button:hover, .sidebar-button-active button:focus-visible {
+    background-color: var(--color-accent-primary-hover);
+    border-radius: var(--border-radius-btn-sidebar-hover);
+}
+.sidebar-button-active span {
+    color: var(--color-accent-primary);
+}
+
+.btn-sidebar {
+    width: 4.2rem;
+    height: 4.2rem;
+    margin: 0.5rem 0.5rem;
+    border-radius: var(--border-radius-btn-sidebar);
+    transition: all 200ms;
+}
+
+.btn-sidebar:hover, .btn-sidebar:focus-visible {
+    border-radius: var(--border-radius-btn-sidebar-hover);
+}
+
+.btn-sidebar-label {
+    display: none;
+    text-wrap: nowrap;
+    margin-right: 3rem;
+}
+
+.side-navigation:hover .btn-sidebar-label, .side-navigation:has(button:focus-visible) .btn-sidebar-label {
+    display: inline;
+    text-wrap: nowrap;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-left: 5.4rem;
+    /* padding: 1rem; */
+    flex-grow: 1;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.footer-container {
+    padding: 0.2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--color-bg-sidebar);
+    color: var(--color-text-primary);
+}
+
+
+/* ------------------- */
+
+.btn-emote, .btn-emoji {
+    height: 3.6rem;
+    border-radius: var(--border-radius-btn-emote);
+    transition: all 200ms;
+}
+
+.btn-emote {
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.btn-emote:hover, .btn-emoji:hover, .btn-emote:focus-visible, .btn-emoji:focus-visible {
+    border-radius: var(--border-radius-btn-emote-hover);
+}
+
+.btn-emote-favorite {
+    background: linear-gradient(to left, var(--color-accent-favorite) -100%, var(--color-btn-bg));
+}
+
+.btn-emote-favorite:hover, .btn-emote-favorite:focus-visible {
+    background: linear-gradient(to left, var(--color-accent-favorite-hover) -100%, var(--color-btn-hover));
+}
+
+
+/* KEYBINDS */
+
+.keybinds-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.keybinds-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+}
+
+.keybinds-item-buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn-keybind {
+    flex-grow: 1;
+}
+
+.keybind-bind-text {
+    color: var(--color-accent-primary);
+    font-weight: 600;
+}
+
+.keybind-description {
+    white-space: pre-line;
+}
+
+
+
+/* POPOVER */
+
+.popover {
+    position: fixed;
+    background-color: var(--color-btn-bg);
+    border: 1px solid var(--color-btn-border);
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem 0;
+    z-index: 10000;
+    min-width: 15rem;
+    animation: popoverFadeIn 150ms ease-out;
+}
+
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popover-menu-item {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: var(--color-btn-popover-bg);
+    border: none;
+    color: var(--color-text-primary);
+    text-align: left;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.popover-menu-item:hover, .popover-menu-item:focus-visible {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text-primary);
+}

@@ -1,0 +1,22 @@
+# FiveM temporary files
+cache/
+server-cache/
+server-cache-priv/
+
+# Logs
+logs/
+*.log
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+
+# IDE
+.vscode/
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
