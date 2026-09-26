@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CMapParentTxds>
+  <txdRelationships>
+	<Item>
+      <parent>dubai_highway_2</parent>
+      <child>dubai_highway</child>
+    </Item>
+	<Item>
+      <parent>dubai_highway_3</parent>
+      <child>dubai_highway_2</child>
+    </Item>
+	<Item>
+      <parent>dubai_highway_4</parent>
+      <child>dubai_highway_3</child>
+    </Item>
+  </txdRelationships>
+</CMapParentTxds>
