@@ -27,7 +27,7 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 | **SafeZone** | 2 safe zones with full damage protection |
 | **loadscreen** | Custom loading screen |
 | **playernames** | Overhead player name display |
-| **vMenu** | Powerful admin menu (player, vehicle, time, and weather management) |
+| **vMenu** | menu |
 
 ### 🔹 Maps
 
@@ -40,8 +40,6 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 
 | Name | Description |
 |---|---|
-| **pma-voice** | VOIP system with proximity and radio support |
-| **pma-radio** | Radio system with a custom UI |
 | **rpemotes** | Full animation system (emotes, dances, walking styles, facial expressions) |
 | **speedmeter** | Speedometer styled after Forza Horizon 4 |
 | **sw-nitro** | Advanced nitro system with visual effects |
@@ -66,7 +64,7 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 | Key | Function |
 |---|---|
 | `M` | Open vMenu |
-| `F2` | VIP menu / Noclip (vMenu) |
+| `F2` | VIP menu |
 | `F4` | Animation menu (rpemotes) |
 | `X` | Cancel animation |
 | `B` | Point |
@@ -77,12 +75,6 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 ---
 
 ## 🚀 Setup
-
-### Requirements
-
-- FiveM Server
-- oxmysql (required for vMenu)
-- OneSync Infinity
 
 ### Installation Steps
 
