@@ -71,7 +71,7 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 | `LCTRL` | Sit |
 | `RCTRL` | Crawl |
 | `E` | Revive |
-
+| `F9` | Radio Menu |
 ---
 
 ## 🚀 Setup
