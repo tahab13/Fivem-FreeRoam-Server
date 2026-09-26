@@ -3,7 +3,7 @@ Config = {}
 Config.Teleports = {
     { 
     command = 'tpb',
-    coords = vector4(-1469.3015, -1053.1298, 4.5538, 205.0293)
+    coords = vector4(5000.2529, -2927.1089, 21.0000, 359.4190)
     },
     { 
     command = 'tp',
@@ -40,5 +40,5 @@ Config.Teleports = {
     {
     command = 'tps',
     coords = vector4(3077.3081, -4707.6865, 15.2623, 114.0559)
-    }
+    },
 }

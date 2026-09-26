@@ -29,6 +29,14 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 | **playernames** | Overhead player name display |
 | **vMenu** | menu |
 
+### 🔹 Vehicles
+
+| Name | Description |
+|---|---|
+| **gtr** | Nissan GT-R |
+| **i8** | BMW i8 |
+| **tr22** | Tesla |
+
 ### 🔹 Maps
 
 | Name | Description |
@@ -110,6 +118,8 @@ A complete FreeRoam FiveM server featuring core systems, extra maps, and utility
 │   ├── loadscreen/
 │   ├── playernames/
 │   └── vMenu/
+├── [Vehicle]/           # Vehicles
+│   └── vehicles/
 ├── [Maps]/              # Maps
 │   ├── bob74_ipl/
 │   └── dubai/

@@ -29,6 +29,14 @@
 | **playernames** | نمایش نام بازیکنان بالای سر |
 | **vMenu** | منو |
 
+### 🔹 Vehicles
+
+| نام | توضیحات |
+|---|---|
+| **gtr** | Nissan GT-R |
+| **i8** | BMW i8 |
+| **tr22** | Toyota TR22 |
+
 ### 🔹 Maps
 
 | نام | توضیحات |
@@ -110,6 +118,8 @@
 │   ├── loadscreen/
 │   ├── playernames/
 │   └── vMenu/
+├── [Vehicle]/           # خودروها
+│   └── vehicles/
 ├── [Maps]/              # مپ‌ها
 │   ├── bob74_ipl/
 │   └── dubai/
