@@ -28,6 +28,5 @@ client_scripts {
 }
 
 server_scripts {
-    '@oxmysql/lib/MySQL.lua',
-    'vMenuServer.net.dll'
+    'vMenuServer.net.dll',
 }
