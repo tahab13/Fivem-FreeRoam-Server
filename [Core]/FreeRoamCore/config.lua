@@ -37,4 +37,8 @@ Config.Teleports = {
     command = 'tpv',
     coords = vector4(-1143.0287, 4924.2520, 220.5166, 268.6470)
     },
+    {
+        command = 'tps',
+        coords = vector4(3077.3081, -4707.6865, 15.2623, 114.0559)
+    }
 }
